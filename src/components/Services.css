@@ -1,0 +1,244 @@
+/* SECTION */
+
+.services {
+  padding: 4rem 0 4.5rem;
+  background: #0b0b12;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-bg-glow {
+  position: absolute;
+  inset: -25%;
+  background: radial-gradient(
+      circle at top left,
+      rgba(249, 115, 22, 0.12),
+      transparent
+    ),
+    radial-gradient(circle at top right, rgba(110, 231, 183, 0.12), transparent);
+  opacity: 0.5;
+  z-index: 0;
+  filter: blur(20px);
+}
+
+/* HEADER */
+
+.services-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 2.6rem;
+}
+
+.services-sub {
+  max-width: 38rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.services-header-meta {
+  max-width: 22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  opacity: 0.9;
+}
+
+/* GRID */
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+
+/* CARD WITH 3D TILT & FADE IN */
+
+.service-card {
+  background: rgba(15, 23, 42, 0.33);
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 1.7rem 1.4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+
+  /* fade-up on scroll */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HOVER EFFECTS */
+
+.service-card:hover {
+  border-color: rgba(249, 115, 22, 0.8);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.85);
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 153, 102, 0.25),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* ICON WITH BLUR GLOW */
+
+.service-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.45);
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  position: relative;
+  overflow: visible;
+}
+
+.service-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle,
+    rgba(249, 115, 22, 0.45),
+    transparent 60%
+  );
+  filter: blur(18px);
+  z-index: -1;
+}
+
+/* PARALLAX ICON */
+
+.service-icon .icon-inner {
+  display: inline-block;
+  transition: transform 0.35s ease;
+}
+
+.service-card:hover .icon-inner {
+  transform: translateY(-6px) scale(1.08);
+}
+
+/* INDEX */
+
+.service-index {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: rgba(148, 163, 184, 0.75);
+}
+
+/* TITLE & BADGE (STACKED) */
+
+.service-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.service-title-group h3 {
+  font-size: 1.15rem;
+}
+
+.service-badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(249, 115, 22, 0.8);
+  color: #fed7aa;
+  width: fit-content;
+}
+
+/* TEXT */
+
+.service-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}
+
+/* BULLETS */
+
+.service-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  margin-bottom: 0.9rem;
+}
+
+.service-meta li {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  color: #e5e7eb;
+}
+
+/* TAG */
+
+.service-tag {
+  font-size: 0.78rem;
+  color: #fed7aa;
+  background: rgba(249, 115, 22, 0.14);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(249, 115, 22, 0.45);
+}
+
+/* FOOTER */
+
+.services-footer-row {
+  margin-top: 2.4rem;
+  text-align: center;
+}
+
+.services-footer-note {
+  max-width: 40rem;
+  margin-inline: auto;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 980px) {
+  .services-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
