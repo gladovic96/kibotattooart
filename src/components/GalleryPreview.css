@@ -1,4 +1,4 @@
-/* GALLERY – KONTROLISANI MASONRY */
+/* GALLERY – KONTROLISANI MASONRY PREVIEW */
 
 .gallery {
   padding: 3.2rem 0;
@@ -9,11 +9,42 @@
     #020206 100%
   );
   border-top: 1px solid rgba(31, 41, 55, 0.9);
+  scroll-margin-top: 80px; /* da header ne preseče sekciju kod #gallery */
 }
 
 .gallery .section-header h2 {
   font-size: 1.9rem;
 }
+
+/* HEADER LAYOUT */
+
+.gallery-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.8rem;
+}
+
+.gallery-header-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  max-width: 18rem;
+}
+
+.gallery-note {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.gallery-btn {
+  border-radius: 10px; /* više nije okruglo/pill */
+  padding-inline: 1rem;
+}
+
+/* GRID */
 
 .gallery-grid {
   margin-top: 2.2rem;
@@ -60,7 +91,8 @@
   height: 100%;
 }
 
-/* veći komadi */
+/* Layout za veće kartice */
+
 .gallery-item.item-1,
 .gallery-item.item-5 {
   grid-column: span 2;
@@ -85,6 +117,8 @@
   transform: scale(1.03);
   transition: transform 0.4s ease-out, filter 0.4s ease-out, opacity 0.3s ease;
 }
+
+/* CAPTION */
 
 .gallery-item figcaption {
   position: absolute;
@@ -124,6 +158,8 @@
   color: #fefefe;
 }
 
+/* HOVER */
+
 .gallery-item:hover {
   transform: translateY(-6px);
   box-shadow: 0 28px 65px rgba(0, 0, 0, 0.95);
@@ -151,6 +187,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,7 +216,7 @@
   }
 }
 
-/* Responsive */
+/* RESPONSIVE */
 
 @media (max-width: 980px) {
   .gallery-grid {
@@ -196,11 +233,52 @@
   .gallery-item.item-7 {
     grid-row: span 2 !important;
   }
+
+  .gallery-header-row {
+    align-items: flex-start;
+  }
+
+  .gallery-header-actions {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .gallery-note {
+    text-align: left;
+  }
 }
 
 @media (max-width: 640px) {
   .gallery-grid {
     grid-template-columns: 1fr;
     grid-auto-rows: 220px;
+  }
+
+  /* Na mobilnom prikaži samo prvih 6 kartica da ne zatrpamo ekran */
+  .gallery-item:nth-child(n + 7) {
+    display: none;
+  }
+
+  .gallery-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .gallery-header-actions {
+    width: 100%;
+    max-width: none;
+  }
+
+  .gallery-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Na najmanjim ekranima samo dugme, bez dodatnog teksta sa strane */
+  .gallery-note {
+    display: none;
   }
 }

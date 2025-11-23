@@ -52,12 +52,20 @@
   align-items: center;
 }
 
+.hero-text {
+  max-width: 36rem;
+}
+
 /* TEKST LEVO */
 
 .hero-text h1 {
   font-size: clamp(2.4rem, 3vw + 1.1rem, 3.6rem);
   line-height: 1.1;
   margin-bottom: 1rem;
+}
+
+.hero-text .accent {
+  color: #f97316;
 }
 
 .hero-sub {
@@ -228,7 +236,7 @@
   border-color: #fed7aa;
 }
 
-/* HOVER ANIMACIJA KARTICE */
+/* HOVER ANIMACIJA */
 
 .hero-card:hover .hero-image {
   filter: grayscale(0.1) contrast(1.18);
@@ -241,6 +249,23 @@
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: 2.2rem;
   }
+
+  .hero-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .hero-card {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
@@ -248,12 +273,23 @@
     padding: 3rem 0 2.6rem;
   }
 
-  .hero-inner {
-    grid-template-columns: 1fr;
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-meta {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2.1rem;
   }
 
   .hero-card {
-    margin: 0;
-    max-width: 100%;
+    padding: 1.1rem 1rem 1.2rem;
+    border-radius: 20px;
   }
 }

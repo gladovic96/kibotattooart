@@ -14,24 +14,47 @@ function GalleryPage() {
     "Cover up",
   ];
 
-  const TOTAL_IMAGES = 60;
+  // 👇 OVDE SAMO MENJAŠ tag KAKO TI ODGOVARA
+  // Vodim računa da postoji tačno 34 slike (gallery-1 do gallery-34)
+  const allImages = [
+    { id: 1, src: "/img/gallery/gallery-1.jpg", tag: "Black & Grey" },
+    { id: 2, src: "/img/gallery/gallery-2.jpg", tag: "Black & Grey" },
+    { id: 3, src: "/img/gallery/gallery-3.jpg", tag: "Fine line" },
+    { id: 4, src: "/img/gallery/gallery-4.jpg", tag: "Fine line" },
+    { id: 5, src: "/img/gallery/gallery-5.jpg", tag: "Blackwork" },
+    { id: 6, src: "/img/gallery/gallery-6.jpg", tag: "Blackwork" },
+    { id: 7, src: "/img/gallery/gallery-7.jpg", tag: "Realism" },
+    { id: 8, src: "/img/gallery/gallery-8.jpg", tag: "Realism" },
+    { id: 9, src: "/img/gallery/gallery-9.jpg", tag: "Cover up" },
+    { id: 10, src: "/img/gallery/gallery-10.jpg", tag: "Cover up" },
 
-  function pickCategory(i) {
-    const mods = [
-      "Black & Grey",
-      "Fine line",
-      "Blackwork",
-      "Realism",
-      "Cover up",
-    ];
-    return mods[i % mods.length];
-  }
+    { id: 11, src: "/img/gallery/gallery-11.jpg", tag: "Black & Grey" },
+    { id: 12, src: "/img/gallery/gallery-12.jpg", tag: "Fine line" },
+    { id: 13, src: "/img/gallery/gallery-13.jpg", tag: "Blackwork" },
+    { id: 14, src: "/img/gallery/gallery-14.jpg", tag: "Realism" },
+    { id: 15, src: "/img/gallery/gallery-15.jpg", tag: "Cover up" },
 
-  const allImages = Array.from({ length: TOTAL_IMAGES }, (_, i) => ({
-    id: i + 1,
-    src: `/img/gallery/gallery-${i + 1}.jpg`,
-    tag: pickCategory(i),
-  }));
+    { id: 16, src: "/img/gallery/gallery-16.jpg", tag: "Black & Grey" },
+    { id: 18, src: "/img/gallery/gallery-18.jpg", tag: "Blackwork" },
+    { id: 19, src: "/img/gallery/gallery-19.jpg", tag: "Realism" },
+    { id: 20, src: "/img/gallery/gallery-20.jpg", tag: "Cover up" },
+
+    { id: 21, src: "/img/gallery/gallery-21.jpg", tag: "Black & Grey" },
+    { id: 22, src: "/img/gallery/gallery-22.jpg", tag: "Fine line" },
+    { id: 23, src: "/img/gallery/gallery-23.jpg", tag: "Blackwork" },
+    { id: 24, src: "/img/gallery/gallery-24.jpg", tag: "Realism" },
+    { id: 25, src: "/img/gallery/gallery-25.jpg", tag: "Cover up" },
+
+    { id: 26, src: "/img/gallery/gallery-26.jpg", tag: "Black & Grey" },
+    { id: 27, src: "/img/gallery/gallery-27.jpg", tag: "Fine line" },
+    { id: 28, src: "/img/gallery/gallery-28.jpg", tag: "Blackwork" },
+    { id: 29, src: "/img/gallery/gallery-29.jpg", tag: "Realism" },
+    { id: 30, src: "/img/gallery/gallery-30.jpg", tag: "Cover up" },
+
+    { id: 31, src: "/img/gallery/gallery-31.jpg", tag: "Black & Grey" },
+    { id: 32, src: "/img/gallery/gallery-32.jpg", tag: "Fine line" },
+    { id: 33, src: "/img/gallery/gallery-33.jpg", tag: "Blackwork" },
+  ];
 
   const filteredImages =
     activeCategory === "Sve"
@@ -94,7 +117,7 @@ function GalleryPage() {
             ))}
           </div>
 
-          {/* GRID – MASONRY, ALI BEZ RUPA */}
+          {/* GRID */}
           <div className="gallery-page-grid">
             {filteredImages.map((img, index) => {
               const sizeClass = getSizeClass(index);

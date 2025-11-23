@@ -2,13 +2,14 @@ import "./Hero.css";
 
 function Hero() {
   return (
-    <section id="home" className="hero">
+    <section id="hero" className="hero">
       <div className="hero-bg-glow" />
 
       <div className="container hero-inner">
         {/* LEVA STRANA – TEKST */}
         <div className="hero-text">
           <p className="eyebrow small">Kibotattooart studio</p>
+
           <h1>
             Custom tetovaže koje
             <span className="accent"> i za 10 godina</span> izgledaju dobro.
@@ -36,7 +37,7 @@ function Hero() {
         </div>
 
         {/* DESNA STRANA – KARTICA / BOOKING SNAPSHOT */}
-        <aside className="hero-card">
+        <aside className="hero-card" aria-label="Informacije o zakazivanju">
           <div className="hero-card-header">
             <span className="hero-status-dot" />
             <span className="hero-status-text">Otvoreno za nove termine</span>

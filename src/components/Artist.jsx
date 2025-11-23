@@ -11,12 +11,27 @@ function Artist() {
           <div className="artist-media">
             <div className="artist-image-frame">
               <div className="artist-image" />
+              <div className="artist-image-overlay" />
+
+              <div className="artist-chip-name">Bojan „Kibo”</div>
+              <div className="artist-chip-role">
+                Fine line • Blackwork • Realism
+              </div>
+            </div>
+
+            <div className="artist-style-chips">
+              <span className="artist-chip">Fine line</span>
+              <span className="artist-chip">Black & Grey</span>
+              <span className="artist-chip">Blackwork</span>
+              <span className="artist-chip">Realism</span>
+              <span className="artist-chip">Cover up</span>
             </div>
           </div>
 
           {/* DESNA STRANA – TEKST + STATOVI */}
           <div className="artist-text">
             <p className="eyebrow small">Tattoo artist</p>
+
             <h2 className="artist-title">
               Bojan „Kibo” — fokus na detalje, atmosferu i priču iza svake
               tetovaže.

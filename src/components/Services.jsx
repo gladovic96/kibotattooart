@@ -4,16 +4,31 @@ import "./Services.css";
 function Services() {
   useEffect(() => {
     const items = document.querySelectorAll(".service-card");
+
+    if (!("IntersectionObserver" in window)) {
+      // Fallback: ako browser ne podržava IO, samo prikaži kartice
+      items.forEach((item) => item.classList.add("visible"));
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // ne posmatraj više kad jednom uđe
+          }
         });
       },
       { threshold: 0.2 }
     );
 
     items.forEach((item) => observer.observe(item));
+
+    return () => {
+      items.forEach((item) => observer.unobserve(item));
+      observer.disconnect();
+    };
   }, []);
 
   const items = [
@@ -50,7 +65,7 @@ function Services() {
   return (
     <section id="services" className="services">
       <div className="services-bg-glow" />
-      <div className="container">
+      <div className="container services-container">
         <div className="services-header-row">
           <div className="section-header">
             <p className="eyebrow small">ŠTA RADIMO</p>
@@ -75,7 +90,7 @@ function Services() {
 
         <div className="service-grid">
           {items.map((item, i) => (
-            <article key={i} className="service-card tilt">
+            <article key={item.title} className="service-card tilt">
               <div className="service-card-header">
                 <div className="service-icon">
                   <span className="icon-inner">{item.icon}</span>
@@ -93,8 +108,8 @@ function Services() {
               <p className="service-text">{item.text}</p>
 
               <ul className="service-meta">
-                {item.bullets.map((bullet, idx) => (
-                  <li key={idx}>{bullet}</li>
+                {item.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
 
