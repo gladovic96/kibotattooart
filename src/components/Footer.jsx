@@ -44,10 +44,10 @@ function Footer() {
           <h4>Društvene mreže</h4>
           <ul className="footer-links">
             <li>
-              <a href="#">Instagram</a>
+              <a href="https://www.instagram.com/kibotattooart/">Instagram</a>
             </li>
             <li>
-              <a href="#">TikTok</a>
+              <a href="https://www.tiktok.com/@bojankrsti4">TikTok</a>
             </li>
             <li>
               <a href="#">Facebook</a>
