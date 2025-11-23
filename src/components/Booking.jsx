@@ -1,14 +1,38 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Booking.css";
 
 function Booking() {
+  const [isSending, setIsSending] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Ovdje ćeš kasnije pokupiti podatke iz forme i poslati na email / backend
-    // npr. preko EmailJS, vlastitog API-ja, Formspree itd.
-    // File input (slike) se čita iz e.target.elements["references"].files
+    setIsSending(true);
 
-    alert("Hvala! Tvoj upit je poslat. Uskoro ćeš dobiti odgovor.");
+    emailjs
+      .sendForm(
+        "service_kn7qj7v", // <- tvoj SERVICE ID (Gmail)
+        "template_4v7mhoq", // <- OVDE upiši tvoj TEMPLATE ID iz EmailJS
+        e.target, // šaljemo celu formu
+        "pjyOoK-KXTEmEuvWB" // <- OVDE upiši tvoj PUBLIC KEY iz EmailJS
+      )
+      .then(
+        (result) => {
+          console.log("EmailJS success:", result.text);
+          alert("Hvala! Tvoj upit je poslat. Uskoro ćeš dobiti odgovor.");
+          e.target.reset();
+        },
+        (error) => {
+          console.error("EmailJS error:", error.text);
+          alert(
+            "Došlo je do greške prilikom slanja. Pokušaj ponovo ili pošalji direktno na email."
+          );
+        }
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   return (
@@ -132,8 +156,12 @@ function Booking() {
             </small>
           </div>
 
-          <button type="submit" className="btn btn-primary btn-full">
-            Pošalji upit
+          <button
+            type="submit"
+            className="btn btn-primary btn-full"
+            disabled={isSending}
+          >
+            {isSending ? "Slanje..." : "Pošalji upit"}
           </button>
         </form>
       </div>
