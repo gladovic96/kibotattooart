@@ -7,15 +7,14 @@ function Booking() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSending(true);
 
     emailjs
       .sendForm(
-        "service_kn7qj7v", // <- tvoj SERVICE ID (Gmail)
-        "template_4v7mhoq", // <- OVDE upiši tvoj TEMPLATE ID iz EmailJS
+        "service_kn7qj7v", // tvoj SERVICE ID
+        "template_4v7mhoq", // tvoj TEMPLATE ID
         e.target, // šaljemo celu formu
-        "pjyOoK-KXTEmEuvWB" // <- OVDE upiši tvoj PUBLIC KEY iz EmailJS
+        "pjyOoK-KXTEmEuvWB" // tvoj PUBLIC KEY
       )
       .then(
         (result) => {
@@ -42,9 +41,9 @@ function Booking() {
           <p className="eyebrow small">Rezervacija termina</p>
           <h2>Pošalji ideju, dogovori skicu i termin.</h2>
           <p className="booking-sub">
-            Opiši ideju, stil, veličinu i mesto na telu. Možeš dodati i
-            referentne slike kako bismo bolje razumeli šta želiš i dali tačniju
-            procenu.
+            Opiši ideju, stil, veličinu i mesto na telu. Ako imaš referentne
+            slike, možeš ih poslati naknadno na email ili preko društvenih mreža
+            nakon dogovora.
           </p>
 
           <ul className="booking-list">
@@ -138,22 +137,8 @@ function Booking() {
               name="message"
               rows="4"
               placeholder="Opiši motiv, stil, da li imaš referentne slike, da li je prva tetovaža..."
+              required
             />
-          </div>
-
-          <div className="form-field">
-            <label htmlFor="references">Referentne slike (opciono)</label>
-            <input
-              type="file"
-              id="references"
-              name="references"
-              accept="image/*"
-              multiple
-            />
-            <small className="field-hint">
-              Možeš ubaciti više slika (jpg, png, webp...) – ideje, skice ili
-              postojeće tetovaže.
-            </small>
           </div>
 
           <button
