@@ -68,38 +68,6 @@
   color: #e5e7eb;
 }
 
-/* FILTER DUGMIĆI */
-
-.gallery-filter-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2rem;
-}
-
-.filter-btn {
-  padding: 0.45rem 1.05rem;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  color: #e5e7eb;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.filter-btn:hover {
-  background: rgba(249, 115, 22, 0.22);
-  border-color: rgba(249, 115, 22, 0.7);
-}
-
-.filter-btn.active {
-  background: linear-gradient(135deg, #f97316, #fbbf24);
-  color: #111827;
-  border-color: #f97316;
-  font-weight: 600;
-}
-
 /* GRID – MASONRY STIL, BEZ RUPA */
 
 .gallery-page-grid {
@@ -146,7 +114,7 @@
   grid-column: span 2;
 }
 
-/* UNUTRA – SLIKA + OVERLAY */
+/* UNUTRA – SAMO SLIKA, BEZ OVERLAYA */
 
 .gallery-page-thumb {
   position: relative;
@@ -165,57 +133,11 @@
   transition: transform 0.4s ease-out, filter 0.4s ease-out, opacity 0.3s ease;
 }
 
-/* OVERLAY */
-
-.gallery-page-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0.9rem 1rem 1rem;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.25),
-    transparent
-  );
-  opacity: 0;
-  transform: translateY(14%);
-  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-}
-
-.gallery-page-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(249, 250, 251, 0.18);
-  color: #f9fafb;
-  width: fit-content;
-}
-
-.gallery-page-zoom {
-  margin-top: 0.3rem;
-  font-size: 0.78rem;
-  color: #e5e7eb;
-  opacity: 0.8;
-}
-
-/* HOVER */
+/* HOVER – SAMO ANIMACIJA SLIKE */
 
 .gallery-page-item:hover .gallery-page-thumb img {
   transform: scale(1.08);
   filter: grayscale(0.25) contrast(1.2);
-}
-
-.gallery-page-item:hover .gallery-page-overlay {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ANIMACIJA */
@@ -290,7 +212,6 @@
     grid-auto-rows: 160px;
   }
 
-  /* na manjim ekranima sve iste visine da bude čitko */
   .gallery-page-item.is-big,
   .gallery-page-item.is-tall,
   .gallery-page-item.is-wide {
@@ -305,7 +226,9 @@
     grid-auto-rows: 210px;
   }
 }
-/* FIX ZA MOBILE – META TEKST (BROJ RADOVA + STILOVI) */
+
+/* FIX ZA MOBILE META TEKST */
+
 @media (max-width: 640px) {
   .gallery-page-meta {
     width: 100%;
@@ -326,7 +249,6 @@
   }
 }
 
-/* JOŠ BOLJE – NA VRLO USKIM EKRANIMA (iPhone SE, Galaxy A13 itd.) */
 @media (max-width: 480px) {
   .gallery-page-meta {
     padding-top: 0.8rem;

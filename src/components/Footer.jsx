@@ -50,7 +50,9 @@ function Footer() {
               <a href="https://www.tiktok.com/@bojankrsti4">TikTok</a>
             </li>
             <li>
-              <a href="#">Facebook</a>
+              <a href="https://www.facebook.com/naki.tomson.77?mibextid=wwXIfr&rdid=vCriWpnY6Eh6ikp6&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1ZkoPgCJx9%2F%3Fmibextid%3DwwXIfr#">
+                Facebook
+              </a>
             </li>
           </ul>
         </div>
