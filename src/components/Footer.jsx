@@ -27,7 +27,7 @@ function Footer() {
           <h4>Studio</h4>
           <p>Sremska Mitrovica, Srbija</p>
           <p>Centar grada / ulica po izboru</p>
-          <p>+381 60 000 000</p>
+          <p>+381 613158372</p>
           <p>kontakt@kibotattooart.rs</p>
         </div>
 
